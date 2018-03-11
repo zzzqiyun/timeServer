@@ -13,12 +13,12 @@ import java.util.Date;
  */
 public class TimeServer {
   public static void main(String args[])throws Exception{
-     Date now = new Date();
-      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-      String nowTime = dateFormat.format(now);
     ServerSocket ss = new ServerSocket(6666);
     while(true) {
       Socket s = ss.accept();
+      Date now = new Date();
+      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+      String nowTime = dateFormat.format(now);
 
       PrintStream ps = new PrintStream(s.getOutputStream());
       ps.println(nowTime);
